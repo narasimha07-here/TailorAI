@@ -13,8 +13,6 @@ measurements = ["ankle", "arm-length", "bicep", "calf", "chest", "forearm", "hei
 class Measurements():
     def __init__(self):
         self.learner = load_learner("Models/Trained_model/ragnet.pkl")
-        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-        self.learner.model.to(self.device)
         self.preprocessing()
 
     def preprocessing(self):
@@ -32,8 +30,8 @@ class Measurements():
         if isinstance(side_image, str):
             side_image = Image.open(side_image).convert("RGB")
 
-        frontal = self.preprocess(front_image).unsqueeze(0).to(self.device)
-        lateral = self.preprocess(side_image).unsqueeze(0).to(self.device)
+        frontal = self.preprocess(front_image).unsqueeze(0)
+        lateral = self.preprocess(side_image).unsqueeze(0)
 
         with torch.no_grad():
             predictions = self.learner.model(frontal, lateral)
