@@ -1,14 +1,24 @@
+# pipeline.py
+
+# Fix WindowsPath issue when loading fastai learner on Linux
+import pathlib
+import sys
+if sys.platform != "win32":  # if not running on Windows
+    pathlib.WindowsPath = pathlib.PosixPath
+
 from fastai.vision.all import *
 import torch
 from torchvision import transforms
-import sys
 import os
 
+# Ensure the parent folder is in sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-measurements = ["ankle", "arm-length", "bicep", "calf", "chest", "forearm", "height", 
-               "hip", "leg-length", "shoulder-breadth", "shoulder-to-crotch", "thigh", 
-               "waist", "wrist"]
+measurements = [
+    "ankle", "arm-length", "bicep", "calf", "chest", "forearm", "height",
+    "hip", "leg-length", "shoulder-breadth", "shoulder-to-crotch", "thigh",
+    "waist", "wrist"
+]
 
 class Measurements():
     def __init__(self):
@@ -35,7 +45,6 @@ class Measurements():
 
         with torch.no_grad():
             predictions = self.learner.model(frontal, lateral)
-
             pred = predictions.squeeze(0).tolist()
 
-        return {measurements[i] : pred[i] for i in range(len(measurements))}
+        return {measurements[i]: pred[i] for i in range(len(measurements))}
