@@ -12,7 +12,7 @@ measurements = ["ankle", "arm-length", "bicep", "calf", "chest", "forearm", "hei
 
 class Measurements():
     def __init__(self):
-        self.learner = load_learner(r"Models/Trained_model/ragnet.pkl")
+        self.learner = load_learner("Models/Trained_model/ragnet.pkl")
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         self.learner.model.to(self.device)
         self.preprocessing()

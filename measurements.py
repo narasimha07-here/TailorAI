@@ -16,9 +16,9 @@ st.markdown(" ")
 
 col_empty1,col1, col2, col_empty2 = st.columns([1, 3, 3, 1])
 with col1:
-    st.image(r"streamlits\images\frontal.png", caption="Frontal image",width=200)
+    st.image("streamlits/images/frontal.png", caption="Frontal image",width=200)
 with col2:
-    st.image(r"streamlits\images\lateral.png", caption="Side image",width=200)
+    st.image("streamlits/images/lateral.png", caption="Side image",width=200)
 
 frontal=st.file_uploader("upload a front image as shown above",type=["jpg","png"],accept_multiple_files=False)
 
