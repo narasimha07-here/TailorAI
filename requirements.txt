@@ -5,3 +5,4 @@ torch == 2.7.1
 streamlit
 torchvision == 0.22.1
 torchaudio == 2.7.1
+streamlit_option_menu
