@@ -22,7 +22,7 @@ measurements = [
 
 class Measurements():
     def __init__(self):
-        self.learner = load_learner("Models/Trained_model/ragnet.pkl")
+        self.learner = load_learner("Models/Trained_model/ragnet.pkl",cpu=False)
         self.preprocessing()
 
     def preprocessing(self):
