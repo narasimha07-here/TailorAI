@@ -17,7 +17,7 @@ class Measurements():
 
         self.model = SequenceModel(in_features=3, dropout=0.3)
         self.model.load_state_dict(
-            torch.load(r"C:\Users\REDDY Here\ragnet.pth", map_location="cpu")
+            torch.load("Models/Trained_model/ragnet.pth", map_location="cpu")
         )
         self.model.eval()
 
