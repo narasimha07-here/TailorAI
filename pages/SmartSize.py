@@ -2,7 +2,7 @@ import streamlit as st
 from PIL import Image
 from Models.pipeline import Measurements
 
-st.title("TailorAI-Smart Size")
+st.title("Deep Anthro-Smart Size")
 st.subheader("Measure Smarter, Wear Better")
 st.markdown(" ")
 
