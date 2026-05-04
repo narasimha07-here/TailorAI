@@ -8,9 +8,9 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from Models.pipeline import Measurements
 
 
-st.set_page_config(page_title="TailorAI")
+st.set_page_config(page_title="DEEP ANTHRO")
 
-st.title("TailorAI-Precision in Every Seam")
+st.title("Deep Anthro-Precision in Every Seam")
 st.subheader("Measure Smarter, Wear Better")
 st.markdown(" ")
 
